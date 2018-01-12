@@ -2,12 +2,10 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class BuyersService {
+  buyers;
 
-  constructor() { }
-
-  public getBuyers()
-  {
-    return [
+  constructor() {
+    this.buyers = [
       {
         id: 1,
         firstName: 'John',
@@ -37,6 +35,16 @@ export class BuyersService {
         products: []
       }
     ]
+   }
+
+  public getBuyers()
+  {
+    return this.buyers;
+  }
+
+  public addBuyers(newBuyer)
+  {
+    this.buyers.push(newBuyer);
   }
 
 }
