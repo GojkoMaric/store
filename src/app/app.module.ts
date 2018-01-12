@@ -10,11 +10,13 @@ import { BuyersComponent } from './components/buyers/buyers.component';
 import { ProductsComponent } from './components/products/products.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { BuyersService } from './services/buyers.service';
+import { PurchaseComponent } from './components/purchase/purchase.component';
 
 const appRoutes: Routes = [
   {path: '', component: ProductsComponent},
   {path: 'buyers', component: BuyersComponent},
-  {path: 'products', component: ProductsComponent}
+  {path: 'products', component: ProductsComponent},
+  {path: 'buyers/:id', component: PurchaseComponent}
 ];
 
 
@@ -24,7 +26,8 @@ const appRoutes: Routes = [
     NabBarComponent,
     BuyersComponent,
     ProductsComponent,
-    LayoutComponent
+    LayoutComponent,
+    PurchaseComponent
   ],
   imports: [
     BrowserModule,
