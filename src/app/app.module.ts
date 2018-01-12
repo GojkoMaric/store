@@ -9,6 +9,7 @@ import { NabBarComponent } from './components/nab-bar/nab-bar.component';
 import { BuyersComponent } from './components/buyers/buyers.component';
 import { ProductsComponent } from './components/products/products.component';
 import { LayoutComponent } from './components/layout/layout.component';
+import { BuyersService } from './services/buyers.service';
 
 const appRoutes: Routes = [
   {path: '', component: ProductsComponent},
@@ -29,9 +30,11 @@ const appRoutes: Routes = [
     BrowserModule,
     RouterModule.forRoot(
       appRoutes
-    )
+    ),
   ],
-  providers: [],
+  providers: [
+    BuyersService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
