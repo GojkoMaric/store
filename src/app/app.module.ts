@@ -11,6 +11,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { BuyersService } from './services/buyers.service';
 import { PurchaseComponent } from './components/purchase/purchase.component';
+import { ProductsService } from './services/products.service';
 
 const appRoutes: Routes = [
   {path: '', component: ProductsComponent},
@@ -44,7 +45,8 @@ const appRoutes: Routes = [
     ),
   ],
   providers: [
-    BuyersService
+    BuyersService,
+    ProductsService
   ],
   bootstrap: [AppComponent]
 })
