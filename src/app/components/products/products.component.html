@@ -1,3 +1,8 @@
+<div>
+  <label for="Filter">Filter</label>
+  <input type="text" [(ngModel)]="filterProduct">
+</div>
+
 <table class='table table-striped'>
   <thead>
     <tr>
@@ -9,7 +14,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor='let product of products'>
+    <tr *ngFor='let product of products | filter: "name" : filterProduct'>
       <td>{{product.id}}</td>
       <td>{{product.name}}</td>
       <td>{{product.quantity}}</td>
