@@ -15,7 +15,7 @@
       <td>{{buyer.firstName}}</td>
       <td>{{buyer.lastName}}</td>
       <td>{{buyer.email}}</td>
-      <td><a routerLink='/buyers/:id'>Check lastest purchase</a></td>
+      <td><a [routerLink]="['/buyers', buyer.id]">Check lastest purchase</a></td>
       <td>
         <button (click)='removeBuyer(buyer)'>
           Remove
@@ -24,8 +24,9 @@
     </tr>
   </tbody>
 </table>
+<router-outlet></router-outlet>
 
-<form>
+<form (ngSubmit)="addBuyer(newBuyer)">
   <label for="id">Id</label>
   <input type="text" name = 'id' [(ngModel)]="newBuyer.id"><br>
   <label for="">First Name</label>
@@ -34,5 +35,5 @@
   <input type="text" name="lastName" [(ngModel)]="newBuyer.lastName"><br>
   <label for="">Email</label>
   <input type="text" name="dateOfBirth" [(ngModel)]="newBuyer.email"><br>
-  <button (click)="addBuyer()">Add Buyer</button>
+  <button type="submit">Add Buyer</button>
 </form>

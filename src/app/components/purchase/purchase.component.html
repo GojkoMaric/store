@@ -1,14 +1,29 @@
-<p>
-  purchase works!
-</p>
+<table class='table'>
+  <thead>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Email</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{buyer.firstName}}</td>
+      <td>{{buyer.lastName}}</td>
+      <td>{{buyer.email}}</td>
 
+    </tr>
+  </tbody>
+</table>
 
-<!-- 
+<table>
+  <thead>
+    <th>List of products</th>
+  </thead>
+  <tbody>
+    <tr *ngFor='let product of buyer.products'>
+      <td>{{product.name}}</td>
+    </tr>
+  </tbody>
+</table>
+<button type='submit' routerLink='/buyers'>Remove buyer details</button>
+<hr>
 
-
-
-  <h2>{buyer.firstName}}</h2>
-  <h2>{{buyer.lastName}}</h2>
-  <h3>{{buyer.email}}</h3>
-
- -->

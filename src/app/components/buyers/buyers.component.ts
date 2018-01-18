@@ -26,6 +26,7 @@ export class BuyersComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.buyers = this._buyersService.getBuyers();
   }
 
 }

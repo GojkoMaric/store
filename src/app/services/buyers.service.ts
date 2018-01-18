@@ -11,28 +11,44 @@ export class BuyersService {
         firstName: 'John',
         lastName: 'Doe',
         email: 'john@example.com',
-        products: []
+        products: [
+          {name: 'Televizor'},
+          {name: 'Mikrotalasna'},
+          {name: 'Mobilni'},
+        ]
       },
       {
         id: 2,
         firstName: 'Johnathan',
         lastName: 'Doehov',
         email: 'johnathan@example.com',
-        products: []
+        products: [
+          {name: 'Knjiga'},
+          {name: 'Olovka'},
+          {name: 'Bicikli'},
+        ]
       },
       {
         id: 3,
         firstName: 'Martin',
         lastName: 'Hess',
         email: 'martin@example.com',
-        products: []
+        products: [
+          {name: 'Slusalice'},
+          {name: 'USB'},
+          {name:  'Roleri'},
+        ]
       },
       {
         id: 4,
         firstName: 'Marc',
         lastName: 'Hently',
         email: 'marc@example.com',
-        products: []
+        products: [
+          {name: 'Jastuk'},
+          {name: 'Krevet'},
+          {name: 'Dusek'},
+        ]
       }
     ]
    }
@@ -45,6 +61,12 @@ export class BuyersService {
   public addBuyers(newBuyer)
   {
     this.buyers.push(newBuyer);
+  }
+
+  public getBuyerId(id){
+    return this.buyers.find(buyer => {
+      return buyer['id'] == id;
+    })
   }
 
 }

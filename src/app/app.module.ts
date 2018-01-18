@@ -14,9 +14,16 @@ import { PurchaseComponent } from './components/purchase/purchase.component';
 
 const appRoutes: Routes = [
   {path: '', component: ProductsComponent},
-  {path: 'buyers', component: BuyersComponent},
   {path: 'products', component: ProductsComponent},
-  {path: 'buyers/:id', component: PurchaseComponent}
+  {path: 'buyers',
+    component: BuyersComponent,
+    children: [
+      {
+        path: ':id',
+        component: PurchaseComponent,
+      }
+    ]
+  }
 ];
 
 
