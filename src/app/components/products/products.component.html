@@ -11,6 +11,7 @@
       <th>Quantity</th>
       <th>Increment</th>
       <th>Decrement</th>
+      <th>Sell</th>
     </tr>
   </thead>
   <tbody>
@@ -26,10 +27,14 @@
         <button 
         (click)='removeQuantity(product.quantity)'>-</button>
       </td>
-      <td>
-        <button *ngIf='product.quantity == 0'
-        class='btn-danger'>-</button>
+      <td *ngIf='product.quantity == 0'>
+        <button class='btn-danger'>-</button>
       </td>
-    </tr>
+    <td>
+      <a [routerLink] ="['/products', product.id]">Sell</a>
+    </td>
+  </tr>
   </tbody>
 </table>
+
+<router-outlet></router-outlet>

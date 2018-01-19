@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
+import { ProductsService } from './products.service';
 
 @Injectable()
 export class BuyersService {
   buyers;
 
-  constructor() {
+  constructor(private _productsService: ProductsService) {
     this.buyers = [
       {
         id: 1,
@@ -67,6 +68,16 @@ export class BuyersService {
     return this.buyers.find(buyer => {
       return buyer['id'] == id;
     })
+  }
+
+  public buyerPurchase(product, id){
+    let buyer = this.getBuyerId(id);
+    this.addProduct(buyer, product);
+  }
+
+  public addProduct(buyer, product){
+    buyer.products.push(product);
+    this._productsService.removeQuantity(product.quantity)
   }
 
 }

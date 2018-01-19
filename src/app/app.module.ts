@@ -13,16 +13,29 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { BuyersService } from './services/buyers.service';
 import { PurchaseComponent } from './components/purchase/purchase.component';
 import { ProductsService } from './services/products.service';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 
 const appRoutes: Routes = [
-  {path: '', component: ProductsComponent},
-  {path: 'products', component: ProductsComponent},
+  {path: '',
+  redirectTo: '/products',
+  pathMatch: 'full'
+  },
+  // {path: 'products', component: ProductsComponent},
   {path: 'buyers',
     component: BuyersComponent,
     children: [
       {
         path: ':id',
         component: PurchaseComponent,
+      }
+    ]
+  },
+  {path: 'products',
+    component: ProductsComponent,
+    children: [
+      {
+        path: ':id',
+        component: ProductDetailComponent,
       }
     ]
   }
@@ -36,7 +49,8 @@ const appRoutes: Routes = [
     BuyersComponent,
     ProductsComponent,
     LayoutComponent,
-    PurchaseComponent
+    PurchaseComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,

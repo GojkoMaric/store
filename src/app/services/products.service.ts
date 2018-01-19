@@ -44,4 +44,10 @@ export class ProductsService {
     return singleProduct.quantity --;
   }
 
+  public getProductById(id){
+    return this.products.find(product => {
+      return product['id'] == id;
+    })
+  }
+
 }
