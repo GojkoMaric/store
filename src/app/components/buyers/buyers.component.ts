@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BuyersService } from '../../services/buyers.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-buyers',
@@ -27,6 +28,12 @@ export class BuyersComponent implements OnInit {
 
   ngOnInit() {
     this.buyers = this._buyersService.getBuyers();
+    this._buyersService.getBuyers().subscribe(data=>{
+      this.buyers = data;
+    },
+    (err: HttpErrorResponse)=>{
+      alert(`Backend returned code ${err.status} with message: ${err.error}`);
+    })
   }
 
 }
