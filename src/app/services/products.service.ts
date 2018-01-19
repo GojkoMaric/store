@@ -28,4 +28,20 @@ export class ProductsService {
      return this.products;
    }
 
+   public addQuantity(quantity){
+    let singleProduct = this.findQuantity(quantity);
+    return singleProduct.quantity ++;
+  }
+
+  public findQuantity(quantity){
+    return this.products.find((product) => {
+      return product['quantity'] == quantity;
+    })
+  }
+
+  public removeQuantity(quantity){
+    let singleProduct = this.findQuantity(quantity);
+    return singleProduct.quantity --;
+  }
+
 }

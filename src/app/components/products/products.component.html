@@ -19,10 +19,16 @@
       <td>{{product.name}}</td>
       <td>{{product.quantity}}</td>
       <td>
-        <button>-</button>
+        <button
+        (click)='addQuantity(product.quantity)'>+</button>
+      </td>
+      <td *ngIf='product.quantity >= 1'>
+        <button 
+        (click)='removeQuantity(product.quantity)'>-</button>
       </td>
       <td>
-        <button>+</button>
+        <button *ngIf='product.quantity == 0'
+        class='btn-danger'>-</button>
       </td>
     </tr>
   </tbody>

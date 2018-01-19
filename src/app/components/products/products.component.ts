@@ -18,4 +18,12 @@ export class ProductsComponent implements OnInit {
     this.products = this._productsService.getProducts();
   }
 
+  addQuantity(quantity){
+    this._productsService.addQuantity(quantity);
+  }
+
+  removeQuantity(quantity){
+    this._productsService.removeQuantity(quantity);
+  }
+
 }
